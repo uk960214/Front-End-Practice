@@ -1,3 +1,4 @@
+// Slide JS
 const slides = document.querySelectorAll('.slide');
 const next = document.querySelector('#next');
 const prev = document.querySelector('#prev');
@@ -61,6 +62,9 @@ if(auto) {
   slideInterval = setInterval(nextSilde, intervalTime);
 }
 
+
+
+// Card JS
 const cards = document.querySelectorAll('.card');
 
 const openCard = (e) => {

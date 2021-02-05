@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  font-family: 'Roboto', sans-serif;
+  background: #333;
+  color: white;
+  line-height: 1.6;
+}
+
+.slider{
+  position: relative;
+  overflow: hidden;
+  height: 86vh;
+  width: 100vw;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.slide.current {
+  opacity: 1;
+}
+
+.slide .content {
+  position: absolute;
+  bottom: 70px;
+  left: -600px;
+  opacity: 0;
+  width: 600px;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #333333;
+  padding: 35px;
+}
+
+.slide.current .content {
+  opacity: 1;
+  transform: translateX(600px);
+  transition: all 0.7s ease-in-out 0.3s;
+}
+
+.buttons button#next {
+  position: absolute;
+  top: 43%;
+  right: 15px;
+}
+
+.buttons button#prev {
+  position: absolute;
+  top: 43%;
+  left: 15px;
+}
+
+.buttons button {
+  border: 3px solid #fff;
+  background-color: transparent;
+  color: #fff;
+  cursor: pointer;
+  padding: 13px 15px;
+  border-radius: 50%;
+  outline: none;
+}
+
+.buttons button:hover {
+  background-color: #fff;
+  color: #333;
+}
+
+.slide .content h1 {
+  margin-bottom: 10px;
+}
+
+@media(max-width: 500px) {
+  .slide .content {
+    bottom: -300px;
+    left: 0;
+    width: 100%;
+  }
+
+  .slide.current .content {
+    transform: translateY(-300px);
+  }
+}
+
+
+/* Background Images */
+.slide:first-child {
+  background: url(./images/food1.jpg) no-repeat center center/cover;
+}
+
+.slide:nth-child(2) {
+  background: url(./images/food2.jpg) no-repeat center center/cover;
+}
+
+.slide:nth-child(3) {
+  background: url(./images/food3.jpg) no-repeat center center/cover;
+}
+
+
+.card-container{
+  margin: 5rem auto;
+  width: 80%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-row-gap: 3.5rem;
+}
+
+.card {
+  position: relative;
+  width: 300px;
+  height: 400px;
+  background-color: transparent;
+  z-index: 1;
+}
+
+.card::after {
+  content:'';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: transparent;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 15px 6px -6px rgba(0, 0, 0, 0.4);
+  border-radius: 15px;
+  z-index: 0;
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+.card-title {
+  padding: 0.3rem 1rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.card-img {
+  position: relative;
+  border-radius: 15px;
+  height: inherit;
+  width: inherit;
+  overflow: hidden;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.card-text {
+  padding: 0.3rem 1rem;
+}
+
+.card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+.card-back {
+  background-color: #2980b9;
+  color: white;
+  transform: rotateY(180deg);
+  padding: 1rem;
+}
+.rotate {
+  transform: rotateY(180deg) scale(1.15);
+  z-index: 2;
+}
